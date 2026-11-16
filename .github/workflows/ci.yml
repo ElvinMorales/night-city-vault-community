@@ -28,9 +28,13 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium webkit
+      - name: Resolve pinned Playwright Chromium executable
+        shell: bash
+        run: |
+          chromium_path="$(node -e 'console.log(require("playwright").chromium.executablePath())')"
+          test -x "$chromium_path"
+          echo "COMMUNITY_CHROMIUM=$chromium_path" >> "$GITHUB_ENV"
       - run: npm run check
-        env:
-          COMMUNITY_CHROMIUM: google-chrome
       # Reject unresolved code authority, unreviewed content, notices and unsuitable public history.
       # Never upload even a temporary Pages artifact before this passes.
       - run: npm run audit:release
