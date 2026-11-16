@@ -1,0 +1,17 @@
+[
+  {
+    "source": "src/shared/types.ts",
+    "sha256": "75d3cd99c2595da807de85d4977b905300d702e3a15184974bae7546a4507913",
+    "decision": "Reviewed domain interfaces only; omitted seed, auth and provider runtime fields."
+  },
+  {
+    "source": "src/shared/analysis.ts",
+    "sha256": "c91f0a343593677434b90369db25c3ff9120afaa2101802f9fc833dbcfb341a0",
+    "decision": "Reviewed pure module; sealed free inventory corrected explicitly."
+  },
+  {
+    "source": "src/server/artwork.ts",
+    "sha256": "6b54dc614fee3a0a76bd125b961f7c67471182d6b8c944b7f1c7d8f74e5d448b",
+    "decision": "Reviewed resolver lines 24\u201360 only; rewritten without server, filesystem, SQL or name fallback."
+  }
+]

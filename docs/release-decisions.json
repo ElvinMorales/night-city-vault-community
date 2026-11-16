@@ -1,0 +1,14 @@
+{
+  "review": "docs/code-licensing-review.md",
+  "catalogReview": "reviewed-factual-metadata",
+  "codeAuthority": "confirmed",
+  "softwareLicense": "MIT",
+  "historyStrategy": "clean-initial-snapshot",
+  "unresolvedPublicationIssues": [],
+  "disclosedRisks": [
+    "Indirect upstream acquisition and possible contract/database-rights claims",
+    "CDPR website/mobile-app distinction for an installable static website",
+    "WeirdCo fan-creation licensing wording versus licensing independently authored utility code",
+    "Unverified physical treatments and incomplete device/accessibility coverage"
+  ]
+}

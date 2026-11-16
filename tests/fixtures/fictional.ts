@@ -1,0 +1,5 @@
+import type { Card, Lot, Printing, Snapshot } from '../../src/domain/types';
+export const card: Card = {id:'fiction-card', name:'Clockwork Turnip', playsetClass:'standard', typeLabel:null, classificationSource:null, colors:null, keepTarget:null, artMediaId:null, needsReview:null, notes:'', aliases:[], version:1};
+export const printing: Printing = {id:'fiction-print', gameplayCardId:card.id, setCode:'FABLE', setName:'Imaginary Orchard', collectorNumber:'007', language:'en', rarity:null, treatment:'unknown', isPromo:false, collectorOnly:false, source:'fictional', sourceText:null, artMediaId:null, notes:'', providerMaps:[], version:1};
+export const lot: Lot = {kind:'holding', id:'fiction-lot', gameplayCardId:card.id, printingId:printing.id, label:'Fictional test lot', reason:null, condition:'unknown', isSealed:false, quantity:8, protectedQty:1, allocatedQty:2, forTradeQty:1, location:'', notes:'', version:1};
+export function snapshot(): Snapshot { return {revision:0, generatedAt:'2026-01-01T00:00:00Z', quoteStaleDays:30, cards:[{...card}], printings:[{...printing}], lots:[{...lot}], allocations:[], quotes:[], decks:[], trades:[]}; }
