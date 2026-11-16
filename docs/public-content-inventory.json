@@ -1,13 +1,21 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies.",
   "files": [
     {
-      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
-      "sha256": "a44e243f87406fbd4928aaa5b1f0569ecf08ab401d4b017d468782fbe642d7b5"
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "sha256": "9418a7a191129bd715894c4680a742d9e2cc34766b0a9fb4097ec35229a9b2c1"
     },
     {
-      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
-      "sha256": "8850650c2bc41d46049a929834e78d7fd59f097b171c3b8ebd9e0259a3103dc7"
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "sha256": "13064e7bea658e01e718b414fbb7b3b244f36411fe25ee2055c151f7b534547a"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/confusing_workflow.yml",
+      "sha256": "2bbe5961734630bca78be1e3a82c2b01a6711281e26963861f3d82c44bcaad13"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "sha256": "cff66a017504cb9339c8ab85cc18e48cbd09702a0c859df4226432cfd4ef9e37"
     },
     {
       "path": ".github/workflows/ci.yml",
@@ -19,11 +27,11 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "535b600de0203c380ae939df8596383125f995c1841b1aa9fd86a10291bfc567"
+      "sha256": "8d21bba984259e410079f308303340a791b8978c7f1b9f1a65c74b92d98790e3"
     },
     {
       "path": "CONTRIBUTING.md",
-      "sha256": "959c80a41b6220b468cd3c77650d35cdce5bff3e004db4053bc6602b30227ec0"
+      "sha256": "f8f3744689fa117d1dbb80a66add29e43e3f73ee484d091b0f097ef723d9ffe7"
     },
     {
       "path": "LICENSE",
@@ -31,11 +39,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "f62c46ff228a303046652b7a6dd9740ea5cebbd88e029d2a610a52d9eadfc3f4"
+      "sha256": "e335c41c1a473c11bcde9b8bf7bbc4deb4190b4ea8b624dbcb79cc20dd0b352a"
     },
     {
       "path": "SECURITY.md",
-      "sha256": "399d82b8002cd9f5f446c4990c80cf786050ed2cc54da56758d0137907d0bfd6"
+      "sha256": "1b50527387d63c31823b486b9d0d1a275627815a29186e2b569e3f007c144929"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -62,6 +70,10 @@
       "sha256": "1d6c7fef66a688fb6e389b8aadddf60338c0022888ade264de7afadb9fb6b00c"
     },
     {
+      "path": "docs/community-beta-audit.md",
+      "sha256": "37fb267ecedf7946a9639acfe1ef43e10bba00436f2423f7aaa70027cb48b5dd"
+    },
+    {
       "path": "docs/data-format.md",
       "sha256": "6d8d0621b70bec9266927129d3d25850c44ca417e230eb9d4599cfa1a17234ca"
     },
@@ -83,11 +95,11 @@
     },
     {
       "path": "docs/privacy.md",
-      "sha256": "cf3c4fd5530f8cf0a9d326ac83ccddb4632be3e9ee872df55b5b26333325cc43"
+      "sha256": "61b579aace3515e75307741197a049edde08ecf5eb335b79311f685a4556dea2"
     },
     {
       "path": "docs/release-checklist.md",
-      "sha256": "dcfcff7a432121435220da5c8b116605131a3c5e0180b0b0ad8c20e99816826a"
+      "sha256": "f0177b20bc4312d50d09094c1377632bdb8ababbd258cd38d88180f0bca3b20a"
     },
     {
       "path": "docs/release-decisions.json",
