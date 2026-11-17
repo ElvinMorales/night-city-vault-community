@@ -315,7 +315,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "1ffee823a939cd1ea8bb0c7ddfffa25faf4af314c393533cd3e3d5d45135bd4a"
+      "sha256": "f55d888e7a65d130c3da1e4a63b9879a3ee1c8e8774f3700d3d3ee782eab8a56"
     },
     {
       "path": "src/ui/Artwork.tsx",
@@ -351,7 +351,7 @@
     },
     {
       "path": "src/ui/cardFacets.ts",
-      "sha256": "2ca63773e5f76fe0ce89ce0ab32f2af14af3a894c5a0a113d93918cfe22ecf36"
+      "sha256": "f20d5f36eff11852ae9907f01b67c4eaafe6bd1b8f1df6a9e61683afe7e326c6"
     },
     {
       "path": "src/ui/store.ts",
@@ -415,7 +415,7 @@
     },
     {
       "path": "tests/unit/cardFacets.test.ts",
-      "sha256": "0bfa6b82c082b79f7b0434a559da0e5b5c9c3fd74c341146e0e51f3fdae32146"
+      "sha256": "0f6596268943ff39b9b7c2079317a618ff1f4a9d1bd1654f0be87b90607fb5b5"
     },
     {
       "path": "tests/unit/catalog.test.ts",
