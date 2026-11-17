@@ -93,8 +93,8 @@ export function App({catalog=packagedCatalog}:{catalog?:CatalogRelease|null}) {
  const noticeKey=`${snapshot.revision}:${store.notice}`;
  const notice=store.notice&&noticeKey!==dismissedNotice?<ChangeNotice store={store} dismiss={()=>{setDismissedNotice(noticeKey);requestAnimationFrame(()=>{const target=document.querySelector<HTMLElement>('dialog h2')??document.querySelector<HTMLElement>('.activity-link');target?.focus();});}}/>:null;
  const photoCards=snapshot.cards.filter(c=>artwork.some(e=>e.canonicalCardId===c.id)&&normalizeName(c.name).includes(normalizeName(photoQuery)));
- const catalogFacetLookup=useMemo(()=>buildCatalogFacetLookup(catalog?.cards??[]),[catalog]);
- const facetsById=useMemo(()=>new Map(snapshot.cards.map(c=>[c.id,resolveCardFacets(c,catalogFacetLookup)])),[snapshot.cards,catalogFacetLookup]);
+ const catalogFacetLookup=buildCatalogFacetLookup(catalog?.cards??[]);
+ const facetsById=new Map(snapshot.cards.map(c=>[c.id,resolveCardFacets(c,catalogFacetLookup)]));
  const tagOptions=[...new Set([...facetsById.values()].flatMap(f=>f.tags))].sort((a,b)=>a.localeCompare(b));
  const rarityOptions=[...new Set(snapshot.printings.filter(p=>context==='all'||inCatalogContext(p,context)).map(p=>p.rarity).filter((v):v is string=>!!v))].sort((a,b)=>a.localeCompare(b));
  const clearFacets=()=>{setColorFilter('All');setTypeFilter('All');setTagFilter('');setRarityFilter('');setLimit(100);};
