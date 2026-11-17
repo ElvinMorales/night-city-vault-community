@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -461,17 +461,17 @@
     "vitest": "5.1.0"
   },
   "buildFiles": {
-    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a",
-    "dist/assets/index-DXC-TCwP.js": "789ea79a0d6c6b18a708d7953d7ae546e86d3fb661139501eb972bef16b682e4",
-    "dist/assets/index-qMRb_bvt.css": "2b25ccadd63f6b9920b4b1261318135a6483cc09293574889f4152b45a9ef651",
+    "dist/assets/index-B_XZse23.js": "64b16a4fd7bcf6e24247a5ba887d473f4e7859379b8d3a649cc3d00c119e067c",
+    "dist/assets/index-Z-b6Zu0v.css": "7c0785d98c105ced18e6b692559cfeb856c948f19834ab1f8e740c297e377be4",
     "dist/assets/worker-BdrwRw7_.js": "29fcf89bf5ae911a710b694f8c7d09a8f39ea153aa839c046cc76f4c022d3055",
     "dist/assets/worker-BrIZtpS9.js": "81d9168d18cbe0256a9ace1f91d5d9383da791ebdbd0a146e0ed04a9446c5ef1",
     "dist/icons/apple-touch-icon.png": "9721d91813a7b6442cec58ae3635abe0dd120a521bdf27c9d2e707d3b5c5964f",
     "dist/icons/vault-192.png": "bf996a4afb30061944614aa42ecd5b9eda9817e12b33b05ae59edfdac4fbb8dc",
     "dist/icons/vault-512.png": "9584f3e6a0c5601fa6802b5978d60f6e9440c5d2012eccbb5d7a66beda517ab2",
-    "dist/index.html": "d64c1447937cd4bfa7e5e3226db99c10a90c0cb6c7665520a31b1ed3c2beb8d1",
+    "dist/index.html": "5a8729dbff3d07cd57e6dc0d94ecdbb1af07ffe754d2ef89c0b40a040ca1215f",
     "dist/manifest.webmanifest": "7d4c70ef9c7a16bf6291dfbfc696c181692bc0da68baa6de5523b134851cc29b",
-    "dist/sw.js": "233856995dac94805bb61a0bf9dc1dbf603042f6eebee4aba0da96d6eb492c8e"
+    "dist/sw.js": "dd93bd0aef429e37d42cd9668eb53c37dbca5d30075e576afdc18c42b951cbae",
+    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a"
   },
   "dependencyFiles": {
     "node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs": "92bc7d86f012f0a1a38447512014d2decabeec0663bcebf49b95ca6081722b90",
