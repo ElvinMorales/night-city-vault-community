@@ -8,17 +8,21 @@
   "transformationVersion": 1,
   "localDatasets": [
     "local-catalog/archive-metadata.json",
-    "local-catalog/catalog.json"
+    "local-catalog/catalog.json",
+    "local-catalog/gameplay-stats.json"
   ],
   "approvedDistributableCatalogAssets": [
     "local-catalog/archive-metadata.json",
-    "local-catalog/catalog.json"
+    "local-catalog/catalog.json",
+    "local-catalog/gameplay-stats.json"
   ],
   "review": "docs/catalog-distribution-review.md",
   "distributionBasis": "Field-level U.S. factual/short-title analysis; no upstream license claimed",
   "redistributionApprovedMeaning": "False means no third-party permission grant established; field-level review, not this boolean, determines factual-metadata suitability.",
   "reviewedAssetHashes": {
     "local-catalog/archive-metadata.json": "47826e240421206cc5cf307ebeb9197ca62f85f45861a1b17cfe56e05137f958",
-    "local-catalog/catalog.json": "ab1d14d702a62d489bfa6f69b4a7cd0ac474ce8ac67016d6aa898488365618c0"
-  }
+    "local-catalog/catalog.json": "ab1d14d702a62d489bfa6f69b4a7cd0ac474ce8ac67016d6aa898488365618c0",
+    "local-catalog/gameplay-stats.json": "e269a56c40c683d05259f909173d9d6a23ea27d698d7751c72dc16f9419160cd"
+  },
+  "additionalReview": "docs/gameplay-stat-metadata-review.md; scoped factual four-field supplement, not a third-party permission grant"
 }
