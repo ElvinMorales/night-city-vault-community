@@ -27,7 +27,7 @@ export async function reviewBrowseFilters(page){
   assert.deepEqual(await titles(),catalog.cards.filter(c=>c.colors===value).map(c=>c.name));
  }
  assert.ok(await page.getByText('No cards match these filters.',{exact:true}).isVisible());
- await page.getByRole('button',{name:'Clear color and advanced filters'}).click();
+ await page.getByRole('button',{name:'Clear browsing filters'}).click();
  for(const type of ['Legend','Unit','Gear','Program','Unknown']){
   await page.getByRole('combobox',{name:'Card type',exact:true}).selectOption(type);
   assert.deepEqual(await titles(),catalog.cards.filter(c=>c.typeLabel.split(' · ')[0]===type).slice(0,100).map(c=>c.name));
@@ -60,7 +60,7 @@ export async function reviewBrowseFilters(page){
   await page.getByRole('group',{name:'Show cards',exact:true}).getByRole('button',{name:'All',exact:true}).click();
  }
  // Clearing has an explicit scope: retain search, edition and ownership.
- await page.getByRole('button',{name:'Clear color and advanced filters'}).click();
+ await page.getByRole('button',{name:'Clear browsing filters'}).click();
  assert.equal(await search.inputValue(),target.name);assert.equal(await page.getByLabel('Set / Edition',{exact:true}).inputValue(),'all');
  assert.equal(await page.getByRole('combobox',{name:'Rarity',exact:true}).inputValue(),'');
  await color('Unknown').click();
@@ -82,6 +82,41 @@ export async function reviewBrowseFilters(page){
   await toggle.click();
  }
  await toggle.click();await page.setViewportSize({width:390,height:844});await page.evaluate(()=>scrollTo(0,0));
+ // Source-reported gameplay attributes: exact matching; 0 differs from absent; Eddies is sellability.
+ const stats=JSON.parse(await readFile('local-catalog/gameplay-stats.json','utf8'));
+ assert.equal(stats.entries.length,catalog.cards.length);
+ const byId=new Map(stats.entries.map(x=>[x.id,x]));
+ const sourceCard=catalog.cards.find(c=>{const x=byId.get(c.id);return x&&x.cost!==null&&x.power!==null&&x.ram!==null&&x.eddiable===true;});
+ assert.ok(sourceCard,'A real catalog card supplies all four stats');
+ const row=byId.get(sourceCard.id);
+ const statSelect=label=>page.getByRole('combobox',{name:label,exact:true});
+ await edition('all');await toggle.click();
+ await search.fill(sourceCard.name);
+ await statSelect('Cost').selectOption(String(row.cost));
+ await statSelect('PWR').selectOption(String(row.power));
+ await statSelect('RAM').selectOption(String(row.ram));
+ await statSelect('Eddies').selectOption('sellable');
+ assert.deepEqual(await titles(),[sourceCard.name]);
+ await statSelect('Eddies').selectOption('non-sellable');assert.deepEqual(await titles(),[]);
+ await statSelect('Eddies').selectOption('sellable');
+ await statSelect('PWR').selectOption('unknown');assert.deepEqual(await titles(),[]);
+ await statSelect('PWR').selectOption('');
+ await statSelect('Cost').selectOption('');
+ await statSelect('RAM').selectOption('');
+ await statSelect('Eddies').selectOption('');
+ const missing=catalog.cards.find(c=>byId.get(c.id).cost===null);
+ await search.fill(missing.name);await statSelect('Cost').selectOption('unknown');
+ assert.deepEqual(await titles(),[missing.name],'Missing Cost must not become 0');
+ await statSelect('Cost').selectOption('');
+ const zero=catalog.cards.find(c=>byId.get(c.id).power===0);
+ await search.fill(zero.name);await statSelect('PWR').selectOption('0');
+ assert.deepEqual(await titles(),[zero.name],'Zero PWR must remain searchable');
+ await page.getByRole('button',{name:'Clear browsing filters'}).click();
+ for(const label of ['Cost','PWR','RAM','Eddies'])assert.equal(await statSelect(label).inputValue(),'');
+ await statSelect('RAM').selectOption('6');
+ await page.getByRole('button',{name:'Pack Desk',exact:true}).click();
+ assert.equal(await statSelect('RAM').inputValue(),'','Navigation clears gameplay filters');
+ await toggle.click();
  assert.deepEqual(await stored(),before,'Browsing must not write collection records, quantities, ledger or settings');
  console.log('PASS browse facets: real colors, combined metadata/search/ownership/editions/views, empty/reset/navigation, keyboard, responsive controls and unchanged database');
 }
