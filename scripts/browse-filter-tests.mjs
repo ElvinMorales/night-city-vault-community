@@ -85,6 +85,13 @@ export async function reviewBrowseFilters(page){
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Expanded filters overflow at ${width}`);
   const small=await panel.locator('button,select').evaluateAll(es=>es.filter(e=>{const r=e.getBoundingClientRect();return r.width<43||r.height<43;}).map(e=>e.textContent));
   assert.deepEqual(small,[],`Expanded targets at ${width}`);
+  await page.getByRole('combobox',{name:'Rarity',exact:true}).focus();
+  for(const label of ['Cost','PWR','RAM','Eddies']){
+   await page.keyboard.press('Tab');
+   const select=page.getByRole('combobox',{name:label,exact:true});
+   assert.ok(await select.evaluate(e=>e===document.activeElement),`Keyboard order for ${label} at ${width}`);
+   assert.ok(await select.evaluate(e=>{const r=e.getBoundingClientRect();const nav=document.querySelector('nav').getBoundingClientRect();return r.top>=0&&r.bottom<=Math.min(innerHeight,innerWidth<=900?nav.top:innerHeight);}),`Focused ${label} obscured at ${width}`);
+  }
   await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');
   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`Collapsed filters overflow at ${width}`);
   assert.ok(await page.locator('article').first().evaluate(e=>e.getBoundingClientRect().top<innerHeight-60),`First card visible at ${width}`);

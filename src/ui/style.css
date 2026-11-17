@@ -68,3 +68,5 @@ main{padding-bottom:140px}.activity-link{font-size:13px;margin:4px 0}.saved-phot
 /* Keep the first card visible on a fresh narrow-screen launch; advice stays keyboard accessible. */
 .welcome{padding:6px 12px;margin-bottom:8px}.welcome details{flex:1;min-width:0}.welcome summary{padding:0;min-height:44px;align-content:center}
 @media(max-width:380px){main{padding-top:8px}.welcome{margin-bottom:0}.section-head{margin-bottom:6px}.filter-chips{margin:8px 0}.toolbar{margin-bottom:8px}}
+/* WebKit focus scrolling must reserve the fixed mobile navigation, including safe area. */
+@media(max-width:900px){.collection-facets :is(button,select){scroll-margin-block:24px calc(90px + env(safe-area-inset-bottom))}}
