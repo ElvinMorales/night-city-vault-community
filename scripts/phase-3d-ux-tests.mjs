@@ -5,6 +5,7 @@ import path from 'node:path';
 import {tmpdir} from 'node:os';
 import assert from 'node:assert/strict';
 import {chromium,webkit} from 'playwright';
+import {reviewBrowseFilters} from './browse-filter-tests.mjs';
 const server=createServer(async(req,res)=>{try{let pathname=new URL(req.url,'http://loopback.invalid').pathname;if(!pathname.startsWith('/night-city-vault-community/')){res.writeHead(404);res.end();return;}pathname=pathname.slice('/night-city-vault-community'.length);const file=path.resolve('dist','.'+(pathname==='/'?'/index.html':pathname));if(!file.startsWith(path.resolve('dist')+path.sep))throw Error('path');res.setHeader('Content-Type',file.endsWith('.js')?'text/javascript':file.endsWith('.css')?'text/css':file.endsWith('.png')?'image/png':'text/html');res.end(await readFile(file));}catch{res.writeHead(404);res.end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const origin=`http://127.0.0.1:${server.address().port}/night-city-vault-community/`;
@@ -19,6 +20,7 @@ try{for(const [name,engine] of [['Chromium',chromium],['WebKit',webkit]]){
  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(origin);await page.locator('article').first().waitFor();await page.getByRole('button',{name:'Dismiss welcome'}).click();
  const shot=async label=>{if(name==='Chromium'&&process.env.COMMUNITY_UPDATE_VISUALS==='1')await page.screenshot({path:`docs/phase-3d/${label}.png`,animations:'disabled',caret:'hide'});};
+ await reviewBrowseFilters(page);
  // Special version workflow: synthetic player-confirmed metadata, no catalog mutation.
  await page.locator('.tile-add').first().click();
  const specialDialog=page.getByRole('dialog');

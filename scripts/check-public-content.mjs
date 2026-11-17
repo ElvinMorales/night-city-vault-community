@@ -67,7 +67,7 @@ async function walk(dir, build=false) {
   if(e.isDirectory()) {await walk(full,build||rel==='dist');continue;}
   const bytes=await readFile(full);
   if((binary.test(rel)||bytes.includes(0))&&!uxScreenshots.has(rel)&&!['public/icons/vault-192.png','public/icons/vault-512.png','public/icons/apple-touch-icon.png','dist/icons/vault-192.png','dist/icons/vault-512.png','dist/icons/apple-touch-icon.png'].includes(rel)) findings.push(`${rel}: unapproved binary/asset`);
-  if(build) {buildCount++; if(inventory.buildFiles[rel] !== sha(bytes)) findings.push(`${rel}: unreviewed build output`);} else {
+  if(build) {buildCount++; if(inventory.buildFiles[rel] !== sha(bytes)) findings.push(`${rel}: unreviewed build output (SHA-256 ${sha(bytes)})`);} else {
    sourceCount++;
    if(rel!=='docs/public-content-inventory.json' && (!allowed.has(rel)||allowed.get(rel)!==sha(bytes))) findings.push(`${rel}: absent/changed review inventory`);
   }
