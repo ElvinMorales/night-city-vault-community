@@ -39,7 +39,8 @@ export function buildGameplayStatsResolver(catalogCards: Card[], rows: GameplayS
   const ownType=card.typeLabel?.trim().split(' · ')[0].trim().toLowerCase();
   const candidateType=candidate.typeLabel?.trim().split(' · ')[0].trim().toLowerCase();
   if(ownType && ownType!==candidateType) return UNKNOWN_STATS;
-  return stats.get(candidate.id)!;
+  const {cost,power,ram,eddiable}=stats.get(candidate.id)!;
+  return {cost,power,ram,eddiable};
  };
 }
 
