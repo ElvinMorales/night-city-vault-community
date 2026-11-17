@@ -159,7 +159,7 @@
     },
     {
       "path": "scripts/check-public-content.mjs",
-      "sha256": "d5287381f9f7cf1d173769285759306a32608b4edbbac2c8182db7b028b6c4ed"
+      "sha256": "f831a6b13bf70808b12da43b9db8fc9ce6a7a9fe91d3d5b3d708e0483e0382a3"
     },
     {
       "path": "scripts/data-browser-tests.mjs",
