@@ -13,6 +13,11 @@ describe('color-aware collection browsing',()=>{
   expect(resolveCardFacets(older,buildCatalogFacetLookup([official]))).toEqual({color:'Blue',cardType:'Unit',tags:['Netrunner','Corpo']});
   expect(JSON.stringify(older)).toEqual(original);
  });
+ it('treats a colon versus display em dash as the same unambiguous name',()=>{
+  const imported={...older,name:'Imaginary: Netrunner'};
+  const catalog={...official,name:'Imaginary — Netrunner'};
+  expect(resolveCardFacets(imported,buildCatalogFacetLookup([catalog])).color).toBe('Blue');
+ });
  it('does not guess when a catalog name is ambiguous',()=>{
   expect(resolveCardFacets(older,buildCatalogFacetLookup([official,{...official,id:'other',colors:'Green'}])))
    .toEqual({color:'Unknown',cardType:'Unknown',tags:[]});
