@@ -15,6 +15,10 @@ function recognizedType(value: string | null): CardType | null {
  const name = (value ?? '').split(' · ')[0].trim().toLowerCase();
  return (['Legend','Unit','Gear','Program'] as const).find(t => t.toLowerCase() === name) ?? null;
 }
+function lookupName(value: string): string {
+ // Official display punctuation may use an em/en dash where a legacy collection uses ':'.
+ return normalizeName(value).replace(/\s*[—–]\s*/g, ':').replace(/\s*:\s*/g, ':');
+}
 function tags(value: string | null): string[] {
  return (value ?? '').split(' · ').slice(1).map(t => t.trim()).filter(Boolean);
 }
@@ -23,7 +27,7 @@ function tags(value: string | null): string[] {
 export function buildCatalogFacetLookup(cards: Card[]): Map<string, Card | null> {
  const map = new Map<string, Card | null>();
  for (const card of cards) {
-  const key = normalizeName(card.name);
+  const key = lookupName(card.name);
   if (!key) continue;
   if (map.has(key)) map.set(key,null);
   else map.set(key,card);
@@ -32,7 +36,7 @@ export function buildCatalogFacetLookup(cards: Card[]): Map<string, Card | null>
 }
 
 export function resolveCardFacets(card: Card, lookup: Map<string, Card | null>): CardFacets {
- const fallback = lookup.get(normalizeName(card.name));
+ const fallback = lookup.get(lookupName(card.name));
  const ownTags = tags(card.typeLabel);
  return {
   color: recognizedColor(card.colors) ?? recognizedColor(fallback?.colors ?? null) ?? 'Unknown',
