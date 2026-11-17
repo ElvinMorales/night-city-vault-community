@@ -1,0 +1,55 @@
+name: Bug report
+description: Something doesn't work, load, save, or display correctly.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing Night City Vault! You don't need technical experience.
+        **Never attach .ncv backups, exports, personal photos, passwords, or private collection information.**
+        If copies may be missing, do not clear browser data or repeatedly restore backups.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What went wrong?
+      description: What were you trying to do, and what happened?
+      placeholder: "I searched for a card, tapped +, and ..."
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How could we reproduce it? (optional)
+      description: Steps using fictional data help, but it's okay if you're unsure.
+      placeholder: "1. Open Binder ...\n2. Tap ..."
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser (if known)
+      placeholder: "iPhone Safari, Android Chrome, desktop Firefox..."
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Where were you using it?
+      options:
+        - Browser tab
+        - Installed / Home Screen app
+        - Not sure
+  - type: dropdown
+    id: area
+    attributes:
+      label: Which part?
+      options:
+        - Opening or installing
+        - Binder / Pack Desk
+        - Printings / versions
+        - Playsets / Extras / trades
+        - Photos
+        - Backup / restore / storage
+        - Offline use
+        - Something else
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else? (optional)
+      description: Only redacted text or screenshots made with fictional data. No private backups or photos.

@@ -1,0 +1,25 @@
+name: Feature idea
+description: Suggest a useful collection-management improvement.
+title: "[Idea] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas from players are welcome, even without a design or code.
+        Keep private collection details, card photos, backups and account information out of public issues.
+  - type: textarea
+    id: task
+    attributes:
+      label: What collection task are you trying to do?
+      description: Describe your goal or problem in your own words.
+      placeholder: "When sorting duplicates for trade, I want to ..."
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would make it easier? (optional)
+  - type: textarea
+    id: workaround
+    attributes:
+      label: What do you do today? (optional)

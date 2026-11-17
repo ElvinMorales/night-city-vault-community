@@ -1,0 +1,32 @@
+name: Something confusing
+description: Tell us where you got stuck or what wasn't clear.
+title: "[Usability] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You don't need to find a bug. Getting confused is useful feedback!
+        Use fictional or redacted examples; never attach .ncv backups, personal photos or private collection details.
+  - type: textarea
+    id: goal
+    attributes:
+      label: What were you trying to do?
+      placeholder: "I was trying to add a stamped card..."
+    validations:
+      required: true
+  - type: textarea
+    id: confusion
+    attributes:
+      label: What was confusing?
+      placeholder: "I couldn't tell which printing to select..."
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Which screen/device? (optional)
+      placeholder: "Pack Desk on iPhone Safari"
+  - type: textarea
+    id: improvement
+    attributes:
+      label: What would have helped? (optional)

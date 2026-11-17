@@ -1,5 +1,7 @@
 # GitHub Pages small community beta checklist
 
+> **Historical pre-launch checklist (Phase 4C).** The reviewed public repository and first GitHub Pages deployment were authorized and published on 2026-11-16. The checkboxes below reflect the original planning record, not today's launch status. Current limitations and open hands-on checks are documented in the [community beta audit](community-beta-audit.md).
+
 Phase 4C prepares a local candidate only. No repository creation, push or deployment is authorized. See code-licensing-review.md and catalog-distribution-review.md.
 
 - [x] Retain real 151-card / 860-printing catalog; field-level factual review and provenance recorded. No artwork/rules/flavor bundled; no runtime catalog API or synchronization.

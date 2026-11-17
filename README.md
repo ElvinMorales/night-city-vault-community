@@ -1,25 +1,45 @@
 # Night City Vault — Community Edition
 
-An unofficial, free Cyberpunk TCG collection manager built for your phone. Browse the built-in card catalog, add owned copies in Binder or Pack Desk, choose foil, promo, stamped or custom versions, and track Playsets, Extras and trades. Add your own card photos and undo recent edits.
+**A free, unofficial Cyberpunk TCG collection tracker for your phone and browser.**
 
-**Local release candidate:** the real 151-card / 860-printing factual catalog is retained with disclosed risks. Owner-controlled software and original icons are MIT licensed; catalog and franchise rights are excluded. Nothing is deployed. See [code provenance](docs/code-licensing-review.md) and [beta checklist](docs/release-checklist.md).
+**[Open Night City Vault](https://elvinmorales.github.io/night-city-vault-community/)** · [Report a problem or idea](https://github.com/ElvinMorales/night-city-vault-community/issues/new/choose)
 
-The planned address is `https://elvinmorales.github.io/night-city-vault-community/`. Once an approved release is available, players will simply open the link and start collecting; no GitHub account or catalog import is needed.
+This is an **early public beta**. You can try it without an account, but please keep a backup if you start tracking real cards. Built by a fan, not affiliated with or endorsed by WeirdCo, CD PROJEKT RED, or the creators of Cyberpunk.
 
-## Your collection
+## Getting started (no installation needed)
 
-Cards and personal photos are saved in this browser on this device. They do **not** synchronize across devices. The app has no account, upload service or analytics. Your own photos stay local unless you choose to export them. Hosting providers can still receive ordinary page and asset requests.
+1. Open the app link on your phone or computer. The card catalog is already included.
+2. In **Binder** or **Pack Desk**, search for a card and tap its **+** button.
+3. Choose the printing/version if you recognize it. Otherwise select **Not sure which version** — you can identify it later.
+4. Add your owned copies. Use **Playsets** to check progress and **Extras** for copies you might trade. Extras are **not** automatically marked for trade.
+5. Go to **Settings → Back up my collection → Download full backup**. Save the `.ncv` file somewhere outside your browser.
 
-Download a **full .ncv backup** from Settings regularly, especially before updates, clearing browser data or switching phones. Keep that file outside browser storage. Full backups include photos; trade lists and metadata exports do not. Restore through Settings, review the preview, and confirm replacement. Browser storage can be cleared or evicted and private browsing may discard it.
+You can also add personal card photos, record special or custom versions, and view Recent Activity or undo the most recent eligible change.
 
-After one successful online visit and the “Offline app ready” message, the installed app can work offline. Use your browser's install/Add to Home Screen option where supported. Close all Vault windows to let a waiting update activate. Physical iPhone installation and VoiceOver acceptance remain pending.
+The included catalog has **151 gameplay card identities** and **860 source printing references**. These are not 860 verified physical treatments: foil, stamped, promo and completeness details may be uncertain. Please report errors rather than guessing a version.
 
-## Development
+## Important: your collection stays on this device
 
-Use Node 22.18+ and npm. Run `npm ci`, then `npm run dev`. Run `npm run check` for unit, TypeScript, production-build, content, browser, PWA and mobile checks. Browser tests require Playwright Chromium/WebKit (`npx playwright install --with-deps chromium webkit`) and a Chromium executable for the CDP suite (`COMMUNITY_CHROMIUM`). Tests serve the production app under its Pages base path.
+- **No login, cloud sync or automatic backups.** Copies, notes and personal photos are saved in this browser's local storage, not in your GitHub account or another phone.
+- **Make regular full `.ncv` backups.** Browser data can be cleared or evicted. A full backup includes personal photos; a trade list or metadata export does **not**.
+- **Restoring replaces the collection; it does not merge.** Preview the restore first and test it in an empty/disposable browser profile before trusting it.
+- **Offline use starts only after a connected visit and the “Offline app ready” message.** Add to Home Screen is optional. Safari and Home Screen storage can differ, so test and back up before switching.
+- **Card images aren't bundled.** You can add photos from your own device; don't upload copyrighted artwork or private collection files to public bug reports.
 
-`npm run audit:release` is a separate mandatory publication gate. It checks reviewed content, code authority, notices and public-history suitability; current concrete findings are recorded in the release decision. Passing the local content audit is not permission to publish. The deployment workflow uploads only `dist/` after all gates pass. No external catalog service or ongoing data synchronization is required.
+Read the [privacy and storage details](docs/privacy.md) and [security guidance](SECURITY.md) for more.
 
-See [contributing](CONTRIBUTING.md), [security](SECURITY.md), [notices](THIRD_PARTY_NOTICES.md), and [catalog review](docs/catalog-distribution-review.md).
+## Help make the beta better
 
-This is an unofficial fan project, not affiliated with or endorsed by WeirdCo, CD PROJEKT RED or the creators of Cyberpunk. Game names and card identities belong to their respective owners. No card artwork is bundled. Application code uses MIT; see [LICENSE](LICENSE).
+If something breaks, a version looks wrong, or a screen is confusing, **[open a GitHub issue](https://github.com/ElvinMorales/night-city-vault-community/issues/new/choose)**. Choose **Bug report**, **Something confusing**, or **Feature idea**. Opening a GitHub issue requires a free GitHub account; if you don't have one, you can reply where you found the app shared.
+
+Please use fictional or redacted examples. **Never post a full `.ncv` backup, personal card photo, credentials or private collection history.** Include your device/browser when you know it. There are no guaranteed support or fix times — this is a free hobby project.
+
+**Known beta limits:** physical iPhone/Home Screen and VoiceOver acceptance are incomplete; browser storage is not guaranteed; catalog printing details can be uncertain. See the [community beta audit](docs/community-beta-audit.md).
+
+## For contributors
+
+The application is React, TypeScript and Vite, hosted on GitHub Pages with local-first IndexedDB storage and an offline service worker. Node 22.18+ and npm are required for local development.
+
+Run `npm ci`, `npx playwright install --with-deps chromium webkit`, and `npm run check` for verification. Publication additionally requires `npm run audit:release` and protected GitHub Actions deployment. See [CONTRIBUTING.md](CONTRIBUTING.md) before changing data formats or reviewed assets.
+
+Owner-controlled application code and original icons are MIT licensed within the scope of [LICENSE](LICENSE). Catalog metadata, names, franchise rights and third-party material are outside that license; [notices](THIRD_PARTY_NOTICES.md), [provenance](docs/catalog-distribution-review.md), and [licensing review](docs/code-licensing-review.md) provide details. No card artwork is bundled.
