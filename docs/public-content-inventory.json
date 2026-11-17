@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged. Proposed PR5 gameplay fact supplement; explicit residual upstream permission risk in docs/gameplay-stat-metadata-review.md; source fields and provisional provenance reviewed, not approved for public deployment until owner signoff. PR #5 build outputs reviewed from GitHub CI run 44131494443 after narrowing the stat resolver return type; new app/CSS/HTML/PWA cache hashes only, unchanged icon/worker/dependency assets. Independent PR5 identity fix: reject exact-ID/name conflicts; expanded selector/intersection and no-write browser tests. Reviewed app bundle delta and corresponding HTML/cache digests; CSS, workers, icons, notices, catalog and dependencies unchanged. Publication hold remains. Fresh-launch browse review: native folded welcome disclosure and narrow spacing keep the initial card visible before onboarding dismissal; strengthened fresh viewport/keyboard tests. App/CSS/HTML/cache deltas reviewed; unchanged dataset, workers, icons, notices and dependency bytes. WebKit mobile keyboard review: reserve fixed navigation in facet-control scroll margins; strict Tab-order and focused bounds regression at four sizes in both engines. Reviewed CSS/HTML/cache changes and renamed, byte-identical app JS; data, workers and dependencies unchanged. Independent PR5 report records source equality, identity/mobile/WebKit fixes, no-write evidence, unchanged baseline focus assertion timing investigation, exact CI results and an unresolved publication hold; documentary addition only, no runtime/data/dependency bytes changed. Recorded observed report-only CI failure 44144768946 on the inherited immediate photo-focus assertion; prior final engineering CI and full local checks passed. Documentary evidence correction only; no test/runtime/data/dependency change.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -86,12 +86,16 @@
       "sha256": "8b27952776d3246eff4627a8c00e50f70cee856163fb1df5d413c6da4f513c00"
     },
     {
+      "path": "docs/gameplay-stat-metadata-review.md",
+      "sha256": "a577193661d7823679a1ab6de1bc3b92fcd2455941c70dad40ec9c86d50d3f63"
+    },
+    {
       "path": "docs/iphone-manual-checklist.md",
       "sha256": "aad4c328bc4290f4ba6c032ab3ac4b3e0faf71eaac9cbe5ca77596c0fd6c6d33"
     },
     {
       "path": "docs/local-catalog-boundary.json",
-      "sha256": "dd83a9c682f1d7e87dbc891323d1caa68956839690f5d49c078d4c3bf9daef56"
+      "sha256": "55a2b5c488f060476a2378992d67a0cfc41d4ad484f95f389fd3b9f9b3c4565a"
     },
     {
       "path": "docs/pr-4-review.md",
@@ -120,6 +124,10 @@
     {
       "path": "local-catalog/catalog.json",
       "sha256": "ab1d14d702a62d489bfa6f69b4a7cd0ac474ce8ac67016d6aa898488365618c0"
+    },
+    {
+      "path": "local-catalog/gameplay-stats.json",
+      "sha256": "e269a56c40c683d05259f909173d9d6a23ea27d698d7751c72dc16f9419160cd"
     },
     {
       "path": "package-lock.json",
@@ -155,7 +163,7 @@
     },
     {
       "path": "scripts/browse-filter-tests.mjs",
-      "sha256": "3e1270d3cf3e98d941574839b5b501ac301211cf98b61ada88bdd716510c7e60"
+      "sha256": "d75124d06af0b234abc2dead6f43750472c70557789380687297ff2313fab79e"
     },
     {
       "path": "scripts/build-archive.mjs",
@@ -167,7 +175,7 @@
     },
     {
       "path": "scripts/check-public-content.mjs",
-      "sha256": "f831a6b13bf70808b12da43b9db8fc9ce6a7a9fe91d3d5b3d708e0483e0382a3"
+      "sha256": "cfb395161926820748c06af72ff585b773cf29f3b8bbc46c62b9ac0fb162a950"
     },
     {
       "path": "scripts/data-browser-tests.mjs",
@@ -183,7 +191,7 @@
     },
     {
       "path": "scripts/phase-3d-ux-tests.mjs",
-      "sha256": "2b91756f30eadc2a3c002d1fecb46b54b43f18421d72b9ffd23e76086a897cd9"
+      "sha256": "5361fa8120e9ddde436eacff34c574b72057b7cee5b1a9bf788b73aeff0cc252"
     },
     {
       "path": "scripts/pwa-browser-tests.mjs",
@@ -323,7 +331,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "ac62fe99682772d4f05eba95f1d63c3578a1b3244aaba5f84697cbb6f4739c66"
+      "sha256": "173fedc0c46d8e295a2b0dc8e3e61b2b75823245a773754b1864881d268d0a67"
     },
     {
       "path": "src/ui/Artwork.tsx",
@@ -359,7 +367,11 @@
     },
     {
       "path": "src/ui/cardFacets.ts",
-      "sha256": "957d1bea13fda318bc46b7b658a2283017f6aac9b591232fe0fecdc66e29e6e1"
+      "sha256": "f844745b7c988951c29e1f27b48d68faeea1d0fa2c8adda86acf4e6ffda17932"
+    },
+    {
+      "path": "src/ui/gameplayStatFilters.ts",
+      "sha256": "f9d1ea8514da5d1ead96e6b5232e730552cc2635c13dd5102b372b6eca0394f9"
     },
     {
       "path": "src/ui/store.ts",
@@ -367,7 +379,7 @@
     },
     {
       "path": "src/ui/style.css",
-      "sha256": "13a292fa6924c45179bb31677cd2352c16cb02ab6da51c44d86cd3ea1c1b3101"
+      "sha256": "157f3678bda90138f191ef62dee6f44171d6b66f443d75e6670f83b9fa22b01f"
     },
     {
       "path": "src/vite-env.d.ts",
@@ -434,6 +446,10 @@
       "sha256": "ceca51a6f709b63e59a1fdaa5d8d3a85c7ff24ec43d785a7027abf345f6136a5"
     },
     {
+      "path": "tests/unit/gameplayStatFilters.test.ts",
+      "sha256": "e121f6ea65cb84a7c3fb47bdb2a6ba519a70d04972831304bb82ce4c35ca24a5"
+    },
+    {
       "path": "tests/unit/persistence.test.ts",
       "sha256": "ab9204a4da78fa7747fa0ce45c15111466d347957b1e722c4147d714d1481579"
     },
@@ -456,6 +472,10 @@
     {
       "path": "vite.config.ts",
       "sha256": "e2a62c9f0ed6492886b87bc279315b85d8bcf1562ea1b12d5d7c07bb62f34a10"
+    },
+    {
+      "path": "docs/pr-5-review.md",
+      "sha256": "e6ca23193ca3fb8df397d1a48011a99cb67f45d984496b06a99099519fa3a458"
     }
   ],
   "directDependencies": {
@@ -469,17 +489,17 @@
     "vitest": "5.1.0"
   },
   "buildFiles": {
+    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a",
+    "dist/assets/index-7XbHExVx.css": "fbb92e629ecc8bd009a160a488622319ca8ee8493d0386c5ff1e8cec7153ba38",
+    "dist/assets/index-nokZPJlH.js": "9d9bef3e7bd2bc4e2ede242f7da723ef863a803a4b262752ea706d3fe717de39",
     "dist/assets/worker-BdrwRw7_.js": "29fcf89bf5ae911a710b694f8c7d09a8f39ea153aa839c046cc76f4c022d3055",
     "dist/assets/worker-BrIZtpS9.js": "81d9168d18cbe0256a9ace1f91d5d9383da791ebdbd0a146e0ed04a9446c5ef1",
     "dist/icons/apple-touch-icon.png": "9721d91813a7b6442cec58ae3635abe0dd120a521bdf27c9d2e707d3b5c5964f",
     "dist/icons/vault-192.png": "bf996a4afb30061944614aa42ecd5b9eda9817e12b33b05ae59edfdac4fbb8dc",
     "dist/icons/vault-512.png": "9584f3e6a0c5601fa6802b5978d60f6e9440c5d2012eccbb5d7a66beda517ab2",
-    "dist/index.html": "150202b6c13bb6fdfb58c988abb0d7f95d76dd315863939657d01546dea0ff71",
+    "dist/index.html": "1c132597289225fe56dfe53c7bf4e84485f46c980211c0b14f432acc41fd6006",
     "dist/manifest.webmanifest": "7d4c70ef9c7a16bf6291dfbfc696c181692bc0da68baa6de5523b134851cc29b",
-    "dist/sw.js": "3e72e758bd2f3dba93fdd34e8ecdcf2ba2b35c60be0f03b49822d410ea193ee3",
-    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a",
-    "dist/assets/index-CNNcco0H.css": "6dddf7e2f8ec39427acfbf54b44bea4b75088653544083cc5d64d2369abff5c3",
-    "dist/assets/index-CepA_kac.js": "5120b721373cc6acac609a4a1f9aa2d7bf9bfd1f73a4ca22e8b9ca41ace1f206"
+    "dist/sw.js": "aacc6489822007f6375a070fe97a0a2d9d93a5a58dc3b85ed9bc8076422471e7"
   },
   "dependencyFiles": {
     "node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs": "92bc7d86f012f0a1a38447512014d2decabeec0663bcebf49b95ca6081722b90",
