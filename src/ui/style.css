@@ -48,3 +48,7 @@ main{padding-bottom:140px}.activity-link{font-size:13px;margin:4px 0}.saved-phot
 @media(max-width:600px){.advanced-facet-grid{grid-template-columns:1fr}.color-facet{flex:1 0 auto}.color-facets-title{width:100%}}
 @media(max-width:900px) and (orientation:landscape){.toolbar .color-facets,.toolbar .advanced-facets,.toolbar .clear-facets,.toolbar .facet-result-count{grid-column:1/-1}}
 @media(forced-colors:active){.color-facet[aria-pressed=true]{outline:2px solid Highlight}.color-facet-dot{border-color:CanvasText}}
+
+.collection-facets{margin:8px 0 12px;border:1px solid #38506a;border-radius:8px;padding:10px;background:#0e1a2a}
+.collection-facets .color-facets{margin-top:0}
+@media(max-width:380px){.filter-chips button{min-width:0;padding:6px 3px;font-size:11px}}
