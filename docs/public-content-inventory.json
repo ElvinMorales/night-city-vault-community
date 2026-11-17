@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -315,7 +315,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "3c74e8d1293a475dfb6cd80a33ef77aa96f7b5fb0fe3e6f6e49fd604895adf24"
+      "sha256": "1ffee823a939cd1ea8bb0c7ddfffa25faf4af314c393533cd3e3d5d45135bd4a"
     },
     {
       "path": "src/ui/Artwork.tsx",
@@ -350,12 +350,16 @@
       "sha256": "a90044257d82f0b98daeb5960768f1d4e98b902343d7cc8e5c6621df6e077d80"
     },
     {
+      "path": "src/ui/cardFacets.ts",
+      "sha256": "2ca63773e5f76fe0ce89ce0ab32f2af14af3a894c5a0a113d93918cfe22ecf36"
+    },
+    {
       "path": "src/ui/store.ts",
       "sha256": "7fe6edadb6722cc3229db3d4b0326eec5f73aac7ed2a25332fedfddd8570433f"
     },
     {
       "path": "src/ui/style.css",
-      "sha256": "e70883f9a98ca903f6157933a5ca3fb55d1a716e8810f54f4e673976b8fe7886"
+      "sha256": "ed1af9a0c8b8adc47ed604a579270e669c7995a830ad6d2a83e9701f8c667efb"
     },
     {
       "path": "src/vite-env.d.ts",
@@ -408,6 +412,10 @@
     {
       "path": "tests/unit/artwork.test.ts",
       "sha256": "637493933c6b6b51c71f5ee25dcbd412a75f4bbe33e7c86b5f1451cfbfe02637"
+    },
+    {
+      "path": "tests/unit/cardFacets.test.ts",
+      "sha256": "0bfa6b82c082b79f7b0434a559da0e5b5c9c3fd74c341146e0e51f3fdae32146"
     },
     {
       "path": "tests/unit/catalog.test.ts",
