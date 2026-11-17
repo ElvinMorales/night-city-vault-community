@@ -7,14 +7,33 @@ const boundary=JSON.parse(await readFile('docs/local-catalog-boundary.json','utf
 const release=process.argv.includes('--release');
 const decisions=JSON.parse(await readFile('docs/release-decisions.json','utf8'));
 if(boundary.status!=='reviewed-factual-metadata' || decisions.catalogReview!==boundary.status || boundary.review!=='docs/catalog-distribution-review.md') findings.push('Catalog field/provenance review missing');
-for(const file of ['local-catalog/archive-metadata.json','local-catalog/catalog.json']) {
+for(const file of ['local-catalog/archive-metadata.json','local-catalog/catalog.json','local-catalog/gameplay-stats.json']) {
  const digest=createHash('sha256').update(await readFile(file)).digest('hex');
  if(!boundary.approvedDistributableCatalogAssets.includes(file)||boundary.reviewedAssetHashes[file]!==digest) findings.push(`${file}: content differs from field-level review`);
 }
 const raw=JSON.parse(await readFile('local-catalog/archive-metadata.json','utf8'));
 const catalog=JSON.parse(await readFile('local-catalog/catalog.json','utf8'));
+const statSheet=JSON.parse(await readFile('local-catalog/gameplay-stats.json','utf8'));
+if(!shapeStatSheet(statSheet)) findings.push('Gameplay stats missing/unknown fields or version');
+function shapeStatSheet(sheet) {
+ return sheet&&Object.keys(sheet).sort().join(',')==='entries,format,snapshotDate,source,verification'
+  && sheet.format==='community-gameplay-stats@1'
+  && sheet.snapshotDate==='2026-11-01'
+  && sheet.source==='night-city-archive:40eab012f0b683f4dc706df65ebf8dc5587f986c'
+  && sheet.verification==='source-reported; not independently confirmed'
+  && Array.isArray(sheet.entries);
+}
+
 const shape=(value,keys)=>value && Object.keys(value).sort().join(',')===keys.split(',').sort().join(',');
 if(raw.length!==151 || catalog.cards.length!==151 || catalog.printings.length!==860) findings.push('Real catalog/printing coverage changed; review required');
+const statKeys=new Set((statSheet.entries??[]).map(r=>r.id));
+if((statSheet.entries??[]).length!==151 || statKeys.size!==151) findings.push('Gameplay stats must cover exactly 151 unique catalog identities');
+for(const c of raw) if(!statKeys.has(`nca-card-${c.id}`)) findings.push('Gameplay stat source ID mismatch');
+for(const r of statSheet.entries??[]) {
+ if(!shape(r,'id,cost,power,ram,eddiable') || typeof r.id!=='string' || !statKeys.has(r.id)
+   || !['cost','power','ram'].every(k=>r[k]===null || Number.isSafeInteger(r[k])&&r[k]>=0&&r[k]<=100)
+   || typeof r.eddiable!=='boolean') findings.push('Invalid factual gameplay stat record');
+}
 for(const c of raw) {
  if(!shape(c,'id,external_id,name,subname,display_name,color,card_type,classifications,printings')) findings.push('Unreviewed raw card field (possible creative content)');
  for(const p of c.printings??[]) if(!shape(p,'id,collector_number,set,rarity,finish,language,localized_name')||!shape(p.set,'code,name')) findings.push('Unreviewed raw printing field');
