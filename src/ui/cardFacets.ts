@@ -15,7 +15,7 @@ function recognizedType(value: string | null): CardType | null {
  const name = (value ?? '').split(' · ')[0].trim().toLowerCase();
  return (['Legend','Unit','Gear','Program'] as const).find(t => t.toLowerCase() === name) ?? null;
 }
-function lookupName(value: string): string {
+export function lookupName(value: string): string {
  // Official display punctuation may use an em/en dash where a legacy collection uses ':'.
  return normalizeName(value).replace(/\s*[—–]\s*|\s+-\s+/g, ':').replace(/\s*:\s*/g, ':');
 }
