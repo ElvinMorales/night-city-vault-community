@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -150,6 +150,10 @@
       "sha256": "cb3fa7d6e83c0805fc458cc6f8df61cf3e5ac327ea860547f911c388103cd34a"
     },
     {
+      "path": "scripts/browse-filter-tests.mjs",
+      "sha256": "3e1270d3cf3e98d941574839b5b501ac301211cf98b61ada88bdd716510c7e60"
+    },
+    {
       "path": "scripts/build-archive.mjs",
       "sha256": "7954ffd4eaf8e93b81d9627e24c12b6cc6813a3d8b17b26915a192787e1ec158"
     },
@@ -175,7 +179,7 @@
     },
     {
       "path": "scripts/phase-3d-ux-tests.mjs",
-      "sha256": "d19fd6a39dd9281e81558e987877344222597bd81737a065230c950232b9ae17"
+      "sha256": "2b91756f30eadc2a3c002d1fecb46b54b43f18421d72b9ffd23e76086a897cd9"
     },
     {
       "path": "scripts/pwa-browser-tests.mjs",
@@ -315,7 +319,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "b05b261805e306c947908aa41ca30b3d4569882f84ebe0630d6e8832aaf79949"
+      "sha256": "ac62fe99682772d4f05eba95f1d63c3578a1b3244aaba5f84697cbb6f4739c66"
     },
     {
       "path": "src/ui/Artwork.tsx",
@@ -351,7 +355,7 @@
     },
     {
       "path": "src/ui/cardFacets.ts",
-      "sha256": "f20d5f36eff11852ae9907f01b67c4eaafe6bd1b8f1df6a9e61683afe7e326c6"
+      "sha256": "957d1bea13fda318bc46b7b658a2283017f6aac9b591232fe0fecdc66e29e6e1"
     },
     {
       "path": "src/ui/store.ts",
@@ -359,7 +363,7 @@
     },
     {
       "path": "src/ui/style.css",
-      "sha256": "5a50e3421c354927a66957033e8064430892fd5752da2763a4afa679229cd2b8"
+      "sha256": "13a292fa6924c45179bb31677cd2352c16cb02ab6da51c44d86cd3ea1c1b3101"
     },
     {
       "path": "src/vite-env.d.ts",
@@ -415,7 +419,7 @@
     },
     {
       "path": "tests/unit/cardFacets.test.ts",
-      "sha256": "0f6596268943ff39b9b7c2079317a618ff1f4a9d1bd1654f0be87b90607fb5b5"
+      "sha256": "7ec9def7e1ed7818ab504c69a1d82376318b16e5615e6de172d8fdce3225c105"
     },
     {
       "path": "tests/unit/catalog.test.ts",
@@ -461,17 +465,17 @@
     "vitest": "5.1.0"
   },
   "buildFiles": {
-    "dist/assets/index-D6K6Qpu-.css": "b190f9dfa41d1aa0004a6c137ae3416e0c3ab96632a40e45ea0384bb1caa4e92",
-    "dist/assets/index-Dbpq_BlF.js": "d534a66c4348e699932429f131dadee1bf010d3f30c6ac7a939e6c41bdb5f52a",
     "dist/assets/worker-BdrwRw7_.js": "29fcf89bf5ae911a710b694f8c7d09a8f39ea153aa839c046cc76f4c022d3055",
     "dist/assets/worker-BrIZtpS9.js": "81d9168d18cbe0256a9ace1f91d5d9383da791ebdbd0a146e0ed04a9446c5ef1",
     "dist/icons/apple-touch-icon.png": "9721d91813a7b6442cec58ae3635abe0dd120a521bdf27c9d2e707d3b5c5964f",
     "dist/icons/vault-192.png": "bf996a4afb30061944614aa42ecd5b9eda9817e12b33b05ae59edfdac4fbb8dc",
     "dist/icons/vault-512.png": "9584f3e6a0c5601fa6802b5978d60f6e9440c5d2012eccbb5d7a66beda517ab2",
-    "dist/index.html": "35c059f9239888b299f5cb79eed5484a91ccc116ffadad19899af5da1d81d304",
+    "dist/index.html": "150202b6c13bb6fdfb58c988abb0d7f95d76dd315863939657d01546dea0ff71",
     "dist/manifest.webmanifest": "7d4c70ef9c7a16bf6291dfbfc696c181692bc0da68baa6de5523b134851cc29b",
-    "dist/sw.js": "784eaee7c99183273de2042532450cda727fc7f085679f5a3c3aa4456c7085b7",
-    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a"
+    "dist/sw.js": "3e72e758bd2f3dba93fdd34e8ecdcf2ba2b35c60be0f03b49822d410ea193ee3",
+    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a",
+    "dist/assets/index-CNNcco0H.css": "6dddf7e2f8ec39427acfbf54b44bea4b75088653544083cc5d64d2369abff5c3",
+    "dist/assets/index-CepA_kac.js": "5120b721373cc6acac609a4a1f9aa2d7bf9bfd1f73a4ca22e8b9ca41ace1f206"
   },
   "dependencyFiles": {
     "node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs": "92bc7d86f012f0a1a38447512014d2decabeec0663bcebf49b95ca6081722b90",

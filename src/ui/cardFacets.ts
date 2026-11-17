@@ -17,7 +17,7 @@ function recognizedType(value: string | null): CardType | null {
 }
 function lookupName(value: string): string {
  // Official display punctuation may use an em/en dash where a legacy collection uses ':'.
- return normalizeName(value).replace(/\s*[—–]\s*/g, ':').replace(/\s*:\s*/g, ':');
+ return normalizeName(value).replace(/\s*[—–]\s*|\s+-\s+/g, ':').replace(/\s*:\s*/g, ':');
 }
 function tags(value: string | null): string[] {
  return (value ?? '').split(' · ').slice(1).map(t => t.trim()).filter(Boolean);
@@ -36,12 +36,20 @@ export function buildCatalogFacetLookup(cards: Card[]): Map<string, Card | null>
 }
 
 export function resolveCardFacets(card: Card, lookup: Map<string, Card | null>): CardFacets {
- const fallback = lookup.get(lookupName(card.name));
- const ownTags = tags(card.typeLabel);
+ const candidate = lookup.get(lookupName(card.name));
+ const ownType = recognizedType(card.typeLabel);
+ const candidateType = recognizedType(candidate?.typeLabel ?? null);
+ const hasColor = !!card.colors?.trim();
+ const hasType = !!card.typeLabel?.trim();
+ // A name alone cannot justify mixing metadata across conflicting local identities.
+ const fallback = candidate && !candidate.needsReview && !card.needsReview &&
+  (!hasType || (ownType !== null && ownType === candidateType)) &&
+  (!hasColor || (recognizedColor(card.colors) !== null && recognizedColor(card.colors) === recognizedColor(candidate.colors))) &&
+  (card.playsetClass !== 'legend' || candidateType === 'Legend') ? candidate : null;
  return {
-  color: recognizedColor(card.colors) ?? recognizedColor(fallback?.colors ?? null) ?? 'Unknown',
-  cardType: recognizedType(card.typeLabel) ?? (card.playsetClass==='legend'?'Legend':null) ?? recognizedType(fallback?.typeLabel ?? null) ?? 'Unknown',
-  tags: ownTags.length ? ownTags : tags(fallback?.typeLabel ?? null),
+  color: recognizedColor(card.colors) ?? (!hasColor ? recognizedColor(fallback?.colors ?? null) : null) ?? 'Unknown',
+  cardType: ownType ?? (hasType ? null : card.playsetClass==='legend'?'Legend':recognizedType(fallback?.typeLabel ?? null)) ?? 'Unknown',
+  tags: tags(card.typeLabel).length ? tags(card.typeLabel) : tags(fallback?.typeLabel ?? null),
  };
 }
 
