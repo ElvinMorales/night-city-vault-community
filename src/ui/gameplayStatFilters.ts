@@ -32,6 +32,8 @@ export function buildGameplayStatsResolver(catalogCards: Card[], rows: GameplayS
  return card=>{
   const candidate = byId.get(card.id) ?? byName.get(lookupName(card.name));
   if(!candidate || !stats.has(candidate.id) || card.needsReview || candidate.needsReview) return UNKNOWN_STATS;
+  // An ID alone cannot override contradictory saved identity metadata.
+  if(!lookupName(card.name) || lookupName(card.name)!==lookupName(candidate.name)) return UNKNOWN_STATS;
   // Never infer values for a local card that conflicts with the source identity.
   if(card.playsetClass!=='unknown' && card.playsetClass!==candidate.playsetClass) return UNKNOWN_STATS;
   const color=card.colors?.trim().toLowerCase();

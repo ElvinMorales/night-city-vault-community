@@ -6,6 +6,15 @@ export async function reviewBrowseFilters(page){
  const stored=()=>page.evaluate(async()=>{const db=await new Promise((resolve,reject)=>{const r=indexedDB.open('community-collection-local');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});try{const tx=db.transaction([...db.objectStoreNames]);return await Promise.all([...db.objectStoreNames].map(name=>new Promise((resolve,reject)=>{const r=tx.objectStore(name).getAll();r.onsuccess=()=>resolve([name,r.result]);r.onerror=()=>reject(r.error);})));}finally{db.close();}});
  await page.waitForFunction(()=>!document.querySelector('nav button').disabled);
  const before=await stored();
+ // Observe writes as well as final state: a write followed by a compensating write is unsafe too.
+ await page.evaluate(()=>{
+  window.__browseWrites=[];
+  const transaction=IDBDatabase.prototype.transaction;
+  IDBDatabase.prototype.transaction=function(...args){
+   if(args[1]==='readwrite')window.__browseWrites.push(String(args[0]));
+   return transaction.apply(this,args);
+  };
+ });
  const toggle=page.getByRole('button',{name:/^Filters/});
  const panel=page.getByRole('group',{name:'Additional card filters',exact:true});
  const search=page.getByRole('searchbox',{name:'Search cards'});
@@ -91,12 +100,44 @@ export async function reviewBrowseFilters(page){
  const row=byId.get(sourceCard.id);
  const statSelect=label=>page.getByRole('combobox',{name:label,exact:true});
  await edition('all');await toggle.click();
+ // Exercise every numeric choice independently, including values absent from an edition.
+ await search.fill('');
+ for(const [field,label] of [['cost','Cost'],['power','PWR'],['ram','RAM'],['eddiable','Eddies']]){
+  const choices=field==='eddiable'?['sellable','non-sellable','unknown','']:
+   [...new Set(stats.entries.map(r=>r[field]).filter(v=>v!==null))].sort((a,b)=>a-b).map(String).concat('unknown','');
+  for(const choice of choices){
+   await statSelect(label).selectOption(choice);
+   const expected=catalog.cards.filter(c=>{const value=byId.get(c.id)[field];return choice===''||
+    (choice==='unknown'?value===null:field==='eddiable'?value===(choice==='sellable'):String(value)===choice);});
+   assert.deepEqual(await titles(),expected.slice(0,100).map(c=>c.name),`${label} ${choice}`);
+   if(choice!=='')assert.equal(await page.getByRole('status').filter({hasText:/^Showing /}).textContent(),`Showing ${expected.length} of ${catalog.cards.length} cards.`);
+  }
+ }
+ // All gameplay selectors intersect the existing facets on the same gameplay identity,
+ // even when rarity and edition are satisfied by one of several source printings.
+ const [sourceType,sourceTag]=sourceCard.typeLabel.split(' · ');
+ await color(sourceCard.colors).click();
+ await page.getByRole('combobox',{name:'Card type',exact:true}).selectOption(sourceType);
+ if(sourceTag)await page.getByRole('combobox',{name:'Tag',exact:true}).selectOption(sourceTag);
  await search.fill(sourceCard.name);
  await statSelect('Cost').selectOption(String(row.cost));
  await statSelect('PWR').selectOption(String(row.power));
  await statSelect('RAM').selectOption(String(row.ram));
  await statSelect('Eddies').selectOption('sellable');
  assert.deepEqual(await titles(),[sourceCard.name]);
+ for(const context of ['retail','beta','special','languages','all']){
+  await edition(context);
+  const printings=catalog.printings.filter(p=>p.gameplayCardId===sourceCard.id&&inEdition(p,context));
+  if(printings.length)await page.getByRole('combobox',{name:'Rarity',exact:true}).selectOption(printings[0].rarity);
+  for(const view of ['grid','list']){
+   await page.getByLabel('View',{exact:true}).selectOption(view);
+   assert.deepEqual(await titles(),printings.length?[sourceCard.name]:[]);
+  }
+  await page.getByRole('button',{name:'Owned',exact:true}).click();assert.deepEqual(await titles(),[]);
+  await page.getByRole('button',{name:'Missing',exact:true}).click();assert.deepEqual(await titles(),printings.length?[sourceCard.name]:[]);
+  await page.getByRole('group',{name:'Show cards',exact:true}).getByRole('button',{name:'All',exact:true}).click();
+ }
+ await page.getByRole('combobox',{name:'Rarity',exact:true}).selectOption('');
  await statSelect('Eddies').selectOption('non-sellable');assert.deepEqual(await titles(),[]);
  await statSelect('Eddies').selectOption('sellable');
  await statSelect('PWR').selectOption('unknown');assert.deepEqual(await titles(),[]);
@@ -104,6 +145,9 @@ export async function reviewBrowseFilters(page){
  await statSelect('Cost').selectOption('');
  await statSelect('RAM').selectOption('');
  await statSelect('Eddies').selectOption('');
+ await color('All').click();
+ await page.getByRole('combobox',{name:'Card type',exact:true}).selectOption('All');
+ await page.getByRole('combobox',{name:'Tag',exact:true}).selectOption('');
  const missing=catalog.cards.find(c=>byId.get(c.id).cost===null);
  await search.fill(missing.name);await statSelect('Cost').selectOption('unknown');
  assert.deepEqual(await titles(),[missing.name],'Missing Cost must not become 0');
@@ -117,6 +161,7 @@ export async function reviewBrowseFilters(page){
  await page.getByRole('button',{name:'Pack Desk',exact:true}).click();
  assert.equal(await statSelect('RAM').inputValue(),'','Navigation clears gameplay filters');
  await toggle.click();
+ assert.deepEqual(await page.evaluate(()=>window.__browseWrites),[],'No readwrite transactions while filtering');
  assert.deepEqual(await stored(),before,'Browsing must not write collection records, quantities, ledger or settings');
  console.log('PASS browse facets: real colors, combined metadata/search/ownership/editions/views, empty/reset/navigation, keyboard, responsive controls and unchanged database');
 }

@@ -52,6 +52,26 @@ describe('source-reported gameplay stat browsing',()=>{
   ])expect(sole(adjusted)).toEqual(UNKNOWN_STATS);
   expect(sole({...local,typeLabel:'Unit'})).toEqual({cost:0,power:10,ram:3,eddiable:true});
  });
+ it('fails closed when a catalog ID conflicts with the local name',()=>{
+  const resolve=buildGameplayStatsResolver([source],[row]);
+  for(const name of ['Different Name','', 'Imaginary']) {
+   expect(resolve({...source,name})).toEqual(UNKNOWN_STATS);
+  }
+  expect(resolve({...source,name:local.name})).toEqual({cost:0,power:10,ram:3,eddiable:true});
+ });
+ it('keeps exact IDs independent of ambiguous names and rejects source review flags',()=>{
+  const duplicate={...source,id:'second-source'};
+  expect(buildGameplayStatsResolver([source,duplicate],[row])(source)).toEqual({cost:0,power:10,ram:3,eddiable:true});
+  expect(buildGameplayStatsResolver([{...source,needsReview:'Uncertain'}],[row])(local)).toEqual(UNKNOWN_STATS);
+  expect(buildGameplayStatsResolver([], [row])(local)).toEqual(UNKNOWN_STATS);
+  const resolve=buildGameplayStatsResolver([source],[row]);
+  expect(resolve({...local,playsetClass:'unknown'})).toEqual({cost:0,power:10,ram:3,eddiable:true});
+  for(const overrides of [{colors:'Red'},{typeLabel:'Gear'},{playsetClass:'legend' as const},{needsReview:'Check'}]) {
+   expect(resolve({...source,...overrides})).toEqual(UNKNOWN_STATS);
+  }
+  const frozen=Object.freeze({...local,aliases:Object.freeze([...local.aliases])}) as unknown as Card;
+  expect(resolve(frozen)).toEqual({cost:0,power:10,ram:3,eddiable:true});
+ });
  it('rejects duplicate and non-factual records before use',()=>{
   const ids=[source.id];
   expect(()=>validateStatRows([{...row,ram:-1}],ids)).toThrow();

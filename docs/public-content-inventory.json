@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged. Proposed PR5 gameplay fact supplement; explicit residual upstream permission risk in docs/gameplay-stat-metadata-review.md; source fields and provisional provenance reviewed, not approved for public deployment until owner signoff. PR #5 build outputs reviewed from GitHub CI run 44131494443 after narrowing the stat resolver return type; new app/CSS/HTML/PWA cache hashes only, unchanged icon/worker/dependency assets.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged. Proposed PR5 gameplay fact supplement; explicit residual upstream permission risk in docs/gameplay-stat-metadata-review.md; source fields and provisional provenance reviewed, not approved for public deployment until owner signoff. PR #5 build outputs reviewed from GitHub CI run 44131494443 after narrowing the stat resolver return type; new app/CSS/HTML/PWA cache hashes only, unchanged icon/worker/dependency assets. Independent PR5 identity fix: reject exact-ID/name conflicts; expanded selector/intersection and no-write browser tests. Reviewed app bundle delta and corresponding HTML/cache digests; CSS, workers, icons, notices, catalog and dependencies unchanged. Publication hold remains.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -163,7 +163,7 @@
     },
     {
       "path": "scripts/browse-filter-tests.mjs",
-      "sha256": "09020c9030f5cefd86ceaa045dcfd8318d573575c2ef9d8b1d430933191d78d0"
+      "sha256": "584fcf5919ab75fb2476c8c7892f0fe03fc1f84c2f674df7b3997176f981d6b4"
     },
     {
       "path": "scripts/build-archive.mjs",
@@ -371,7 +371,7 @@
     },
     {
       "path": "src/ui/gameplayStatFilters.ts",
-      "sha256": "5e432b2b80f74f7dc14c7356a6b53f5f8e9ef021b9cadacf285930468b3a68fe"
+      "sha256": "f9d1ea8514da5d1ead96e6b5232e730552cc2635c13dd5102b372b6eca0394f9"
     },
     {
       "path": "src/ui/store.ts",
@@ -447,7 +447,7 @@
     },
     {
       "path": "tests/unit/gameplayStatFilters.test.ts",
-      "sha256": "8ff5501b7139b08bc574016974155944f7bb813de72c21848fccf6ecba4546a8"
+      "sha256": "e121f6ea65cb84a7c3fb47bdb2a6ba519a70d04972831304bb82ce4c35ca24a5"
     },
     {
       "path": "tests/unit/persistence.test.ts",
@@ -485,17 +485,17 @@
     "vitest": "5.1.0"
   },
   "buildFiles": {
-    "dist/assets/index-B-WtFVZf.js": "f862ee23975c7d908673d308b2fcf15dddabd6121ef15102a58d1a22a068314d",
+    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a",
     "dist/assets/index-CdYGm_Mv.css": "afca8ea3c27cc60c8232b268fed948368e0bd46d3a7c0c8542a771dc03ca72b0",
+    "dist/assets/index-DeusfjdL.js": "381bb05cdfd3825ac01e801e15b0cc4979f31f5a362c04777feb73be88bdb48d",
     "dist/assets/worker-BdrwRw7_.js": "29fcf89bf5ae911a710b694f8c7d09a8f39ea153aa839c046cc76f4c022d3055",
     "dist/assets/worker-BrIZtpS9.js": "81d9168d18cbe0256a9ace1f91d5d9383da791ebdbd0a146e0ed04a9446c5ef1",
     "dist/icons/apple-touch-icon.png": "9721d91813a7b6442cec58ae3635abe0dd120a521bdf27c9d2e707d3b5c5964f",
     "dist/icons/vault-192.png": "bf996a4afb30061944614aa42ecd5b9eda9817e12b33b05ae59edfdac4fbb8dc",
     "dist/icons/vault-512.png": "9584f3e6a0c5601fa6802b5978d60f6e9440c5d2012eccbb5d7a66beda517ab2",
-    "dist/index.html": "8977f35bfff8c3f0f41d17ee87e5954816f7214fafc2ca198fe4d8267bca61f4",
+    "dist/index.html": "802ccf92f3f6a099275128bf295800f8dbc279c8f016d849a0d513a80ad0454a",
     "dist/manifest.webmanifest": "7d4c70ef9c7a16bf6291dfbfc696c181692bc0da68baa6de5523b134851cc29b",
-    "dist/sw.js": "4a23b2e22d2a1b541b7fc9d1c2177b25a987390225f411748f053d4f23f94f99",
-    "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a"
+    "dist/sw.js": "20ab854e7a005f255e3c2eec1fd8a57798be58ca16ebf96d4f972b315592079d"
   },
   "dependencyFiles": {
     "node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs": "92bc7d86f012f0a1a38447512014d2decabeec0663bcebf49b95ca6081722b90",
