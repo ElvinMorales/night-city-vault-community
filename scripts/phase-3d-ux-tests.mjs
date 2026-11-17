@@ -18,7 +18,18 @@ try{for(const [name,engine] of [['Chromium',chromium],['WebKit',webkit]]){
  const options={viewport:{width:390,height:844},reducedMotion:'reduce'};
  context=profile?await engine.launchPersistentContext(profile,{...options,headless:true}):await browser.newContext(options);
  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(origin);await page.locator('article').first().waitFor();await page.getByRole('button',{name:'Dismiss welcome'}).click();
+ await page.goto(origin);await page.locator('article').first().waitFor();
+ // Fresh launch must show cards before onboarding has been dismissed.
+ for(const [width,height] of [[320,568],[390,844],[844,390],[1280,800]]){
+  await page.setViewportSize({width,height});
+  assert.ok(await page.locator('article').first().evaluate(e=>e.getBoundingClientRect().top<innerHeight-(innerWidth===320?110:65)),`Fresh launch card hidden at ${width}`);
+ }
+ await page.setViewportSize({width:320,height:568});
+ const welcome=page.locator('.welcome');
+ await welcome.locator('summary').focus();await page.keyboard.press('Enter');
+ assert.ok(await welcome.getByText(/The cards are already in the catalog/).isVisible());
+ await page.keyboard.press('Enter');assert.ok(!(await welcome.getByText(/The cards are already in the catalog/).isVisible()));
+ await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Dismiss welcome'}).click();
  const shot=async label=>{if(name==='Chromium'&&process.env.COMMUNITY_UPDATE_VISUALS==='1')await page.screenshot({path:`docs/phase-3d/${label}.png`,animations:'disabled',caret:'hide'});};
  await reviewBrowseFilters(page);
  // Special version workflow: synthetic player-confirmed metadata, no catalog mutation.

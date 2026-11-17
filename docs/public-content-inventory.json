@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged. Proposed PR5 gameplay fact supplement; explicit residual upstream permission risk in docs/gameplay-stat-metadata-review.md; source fields and provisional provenance reviewed, not approved for public deployment until owner signoff. PR #5 build outputs reviewed from GitHub CI run 44131494443 after narrowing the stat resolver return type; new app/CSS/HTML/PWA cache hashes only, unchanged icon/worker/dependency assets. Independent PR5 identity fix: reject exact-ID/name conflicts; expanded selector/intersection and no-write browser tests. Reviewed app bundle delta and corresponding HTML/cache digests; CSS, workers, icons, notices, catalog and dependencies unchanged. Publication hold remains.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged. Proposed PR5 gameplay fact supplement; explicit residual upstream permission risk in docs/gameplay-stat-metadata-review.md; source fields and provisional provenance reviewed, not approved for public deployment until owner signoff. PR #5 build outputs reviewed from GitHub CI run 44131494443 after narrowing the stat resolver return type; new app/CSS/HTML/PWA cache hashes only, unchanged icon/worker/dependency assets. Independent PR5 identity fix: reject exact-ID/name conflicts; expanded selector/intersection and no-write browser tests. Reviewed app bundle delta and corresponding HTML/cache digests; CSS, workers, icons, notices, catalog and dependencies unchanged. Publication hold remains. Fresh-launch browse review: native folded welcome disclosure and narrow spacing keep the initial card visible before onboarding dismissal; strengthened fresh viewport/keyboard tests. App/CSS/HTML/cache deltas reviewed; unchanged dataset, workers, icons, notices and dependency bytes.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -191,7 +191,7 @@
     },
     {
       "path": "scripts/phase-3d-ux-tests.mjs",
-      "sha256": "2b91756f30eadc2a3c002d1fecb46b54b43f18421d72b9ffd23e76086a897cd9"
+      "sha256": "5361fa8120e9ddde436eacff34c574b72057b7cee5b1a9bf788b73aeff0cc252"
     },
     {
       "path": "scripts/pwa-browser-tests.mjs",
@@ -331,7 +331,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "b926cebeecd72d9e95844f8ddf69edb3f6f4aa1415c123148851c3c7c545bc3d"
+      "sha256": "173fedc0c46d8e295a2b0dc8e3e61b2b75823245a773754b1864881d268d0a67"
     },
     {
       "path": "src/ui/Artwork.tsx",
@@ -379,7 +379,7 @@
     },
     {
       "path": "src/ui/style.css",
-      "sha256": "c0ba5225eaa5900f63231672403ed4b31d9fb490889fd20673e61c16dfa3d6f0"
+      "sha256": "2a798daa404aab7f62fd770aa9216a2e6585f2129d4a8429ddbdd27fa83a407a"
     },
     {
       "path": "src/vite-env.d.ts",
@@ -486,16 +486,16 @@
   },
   "buildFiles": {
     "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a",
-    "dist/assets/index-CdYGm_Mv.css": "afca8ea3c27cc60c8232b268fed948368e0bd46d3a7c0c8542a771dc03ca72b0",
-    "dist/assets/index-DeusfjdL.js": "381bb05cdfd3825ac01e801e15b0cc4979f31f5a362c04777feb73be88bdb48d",
+    "dist/assets/index-CX5zOOOz.js": "9d9bef3e7bd2bc4e2ede242f7da723ef863a803a4b262752ea706d3fe717de39",
+    "dist/assets/index-DBkUWI2e.css": "b14d0c76fb0e2d9e95d9bc9ac50307d92657fc23ce994563b6e9646994bc8f5d",
     "dist/assets/worker-BdrwRw7_.js": "29fcf89bf5ae911a710b694f8c7d09a8f39ea153aa839c046cc76f4c022d3055",
     "dist/assets/worker-BrIZtpS9.js": "81d9168d18cbe0256a9ace1f91d5d9383da791ebdbd0a146e0ed04a9446c5ef1",
     "dist/icons/apple-touch-icon.png": "9721d91813a7b6442cec58ae3635abe0dd120a521bdf27c9d2e707d3b5c5964f",
     "dist/icons/vault-192.png": "bf996a4afb30061944614aa42ecd5b9eda9817e12b33b05ae59edfdac4fbb8dc",
     "dist/icons/vault-512.png": "9584f3e6a0c5601fa6802b5978d60f6e9440c5d2012eccbb5d7a66beda517ab2",
-    "dist/index.html": "802ccf92f3f6a099275128bf295800f8dbc279c8f016d849a0d513a80ad0454a",
+    "dist/index.html": "2473ded69f0329f2800b0d1c1fbeccd38aafe0c26e9ac99db1b63343303cde02",
     "dist/manifest.webmanifest": "7d4c70ef9c7a16bf6291dfbfc696c181692bc0da68baa6de5523b134851cc29b",
-    "dist/sw.js": "20ab854e7a005f255e3c2eec1fd8a57798be58ca16ebf96d4f972b315592079d"
+    "dist/sw.js": "6a79e3743415de3daa7c8feab8559baabf0fb061ce23ce5da28ad15d8f0dbf82"
   },
   "dependencyFiles": {
     "node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs": "92bc7d86f012f0a1a38447512014d2decabeec0663bcebf49b95ca6081722b90",
