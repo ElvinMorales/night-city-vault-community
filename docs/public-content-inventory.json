@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -315,7 +315,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "f55d888e7a65d130c3da1e4a63b9879a3ee1c8e8774f3700d3d3ee782eab8a56"
+      "sha256": "b05b261805e306c947908aa41ca30b3d4569882f84ebe0630d6e8832aaf79949"
     },
     {
       "path": "src/ui/Artwork.tsx",
@@ -359,7 +359,7 @@
     },
     {
       "path": "src/ui/style.css",
-      "sha256": "ed1af9a0c8b8adc47ed604a579270e669c7995a830ad6d2a83e9701f8c667efb"
+      "sha256": "5a50e3421c354927a66957033e8064430892fd5752da2763a4afa679229cd2b8"
     },
     {
       "path": "src/vite-env.d.ts",
@@ -461,16 +461,16 @@
     "vitest": "5.1.0"
   },
   "buildFiles": {
-    "dist/assets/index-B_XZse23.js": "64b16a4fd7bcf6e24247a5ba887d473f4e7859379b8d3a649cc3d00c119e067c",
-    "dist/assets/index-Z-b6Zu0v.css": "7c0785d98c105ced18e6b692559cfeb856c948f19834ab1f8e740c297e377be4",
+    "dist/assets/index-D6K6Qpu-.css": "b190f9dfa41d1aa0004a6c137ae3416e0c3ab96632a40e45ea0384bb1caa4e92",
+    "dist/assets/index-Dbpq_BlF.js": "d534a66c4348e699932429f131dadee1bf010d3f30c6ac7a939e6c41bdb5f52a",
     "dist/assets/worker-BdrwRw7_.js": "29fcf89bf5ae911a710b694f8c7d09a8f39ea153aa839c046cc76f4c022d3055",
     "dist/assets/worker-BrIZtpS9.js": "81d9168d18cbe0256a9ace1f91d5d9383da791ebdbd0a146e0ed04a9446c5ef1",
     "dist/icons/apple-touch-icon.png": "9721d91813a7b6442cec58ae3635abe0dd120a521bdf27c9d2e707d3b5c5964f",
     "dist/icons/vault-192.png": "bf996a4afb30061944614aa42ecd5b9eda9817e12b33b05ae59edfdac4fbb8dc",
     "dist/icons/vault-512.png": "9584f3e6a0c5601fa6802b5978d60f6e9440c5d2012eccbb5d7a66beda517ab2",
-    "dist/index.html": "5a8729dbff3d07cd57e6dc0d94ecdbb1af07ffe754d2ef89c0b40a040ca1215f",
+    "dist/index.html": "35c059f9239888b299f5cb79eed5484a91ccc116ffadad19899af5da1d81d304",
     "dist/manifest.webmanifest": "7d4c70ef9c7a16bf6291dfbfc696c181692bc0da68baa6de5523b134851cc29b",
-    "dist/sw.js": "dd93bd0aef429e37d42cd9668eb53c37dbca5d30075e576afdc18c42b951cbae",
+    "dist/sw.js": "784eaee7c99183273de2042532450cda727fc7f085679f5a3c3aa4456c7085b7",
     "dist/THIRD_PARTY_NOTICES.txt": "6af5ed4b2cfc7be6297c503cea8dcf06f1967407b426720536781368b9dbe08a"
   },
   "dependencyFiles": {
