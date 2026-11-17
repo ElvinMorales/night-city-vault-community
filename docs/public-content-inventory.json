@@ -1,5 +1,5 @@
 {
-  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged.",
+  "review": "Phase 4C: scoped MIT authority/source review; explicit manual Pages deployment and environment setup interlock; clean allowlisted public tree, no historical screenshots or development records; unchanged catalog, runtime and dependency payloads. Community beta onboarding and issue form review 2026-11-16; unchanged app/catalog/dependencies. Color-aware placeholders and browse facets reviewed as isolated app/UI changes; catalog and backups unchanged. Dist output digest refresh from GitHub CI run 44111061165 after source review: expected page/app/CSS/service-worker changes only; original icons, workers and notices retained. Compact filter layout and corresponding Pages bytes reviewed from CI run 44112959309; original PWA workers and icons unchanged. Independent PR 4 remediation: conservative read-only metadata fallback, source uncertainty, memoized facets, consistent navigation reset, compact-list color text, persistent accessible filter target and full-width landscape panel. Reviewed source and matching app/CSS/HTML/service-worker outputs only; worker, icon, manifest, notices, catalog and dependency bytes unchanged. Proposed PR5 gameplay fact supplement; explicit residual upstream permission risk in docs/gameplay-stat-metadata-review.md; source fields and provisional provenance reviewed, not approved for public deployment until owner signoff.",
   "files": [
     {
       "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -86,12 +86,16 @@
       "sha256": "8b27952776d3246eff4627a8c00e50f70cee856163fb1df5d413c6da4f513c00"
     },
     {
+      "path": "docs/gameplay-stat-metadata-review.md",
+      "sha256": "a577193661d7823679a1ab6de1bc3b92fcd2455941c70dad40ec9c86d50d3f63"
+    },
+    {
       "path": "docs/iphone-manual-checklist.md",
       "sha256": "aad4c328bc4290f4ba6c032ab3ac4b3e0faf71eaac9cbe5ca77596c0fd6c6d33"
     },
     {
       "path": "docs/local-catalog-boundary.json",
-      "sha256": "dd83a9c682f1d7e87dbc891323d1caa68956839690f5d49c078d4c3bf9daef56"
+      "sha256": "55a2b5c488f060476a2378992d67a0cfc41d4ad484f95f389fd3b9f9b3c4565a"
     },
     {
       "path": "docs/pr-4-review.md",
@@ -120,6 +124,10 @@
     {
       "path": "local-catalog/catalog.json",
       "sha256": "ab1d14d702a62d489bfa6f69b4a7cd0ac474ce8ac67016d6aa898488365618c0"
+    },
+    {
+      "path": "local-catalog/gameplay-stats.json",
+      "sha256": "e269a56c40c683d05259f909173d9d6a23ea27d698d7751c72dc16f9419160cd"
     },
     {
       "path": "package-lock.json",
@@ -155,7 +163,7 @@
     },
     {
       "path": "scripts/browse-filter-tests.mjs",
-      "sha256": "3e1270d3cf3e98d941574839b5b501ac301211cf98b61ada88bdd716510c7e60"
+      "sha256": "09020c9030f5cefd86ceaa045dcfd8318d573575c2ef9d8b1d430933191d78d0"
     },
     {
       "path": "scripts/build-archive.mjs",
@@ -167,7 +175,7 @@
     },
     {
       "path": "scripts/check-public-content.mjs",
-      "sha256": "f831a6b13bf70808b12da43b9db8fc9ce6a7a9fe91d3d5b3d708e0483e0382a3"
+      "sha256": "cfb395161926820748c06af72ff585b773cf29f3b8bbc46c62b9ac0fb162a950"
     },
     {
       "path": "scripts/data-browser-tests.mjs",
@@ -323,7 +331,7 @@
     },
     {
       "path": "src/ui/App.tsx",
-      "sha256": "ac62fe99682772d4f05eba95f1d63c3578a1b3244aaba5f84697cbb6f4739c66"
+      "sha256": "b926cebeecd72d9e95844f8ddf69edb3f6f4aa1415c123148851c3c7c545bc3d"
     },
     {
       "path": "src/ui/Artwork.tsx",
@@ -359,7 +367,11 @@
     },
     {
       "path": "src/ui/cardFacets.ts",
-      "sha256": "957d1bea13fda318bc46b7b658a2283017f6aac9b591232fe0fecdc66e29e6e1"
+      "sha256": "f844745b7c988951c29e1f27b48d68faeea1d0fa2c8adda86acf4e6ffda17932"
+    },
+    {
+      "path": "src/ui/gameplayStatFilters.ts",
+      "sha256": "93ba579185866bf5874a5bf3d3a0a71760939ff7269a1b71501715216fb95954"
     },
     {
       "path": "src/ui/store.ts",
@@ -367,7 +379,7 @@
     },
     {
       "path": "src/ui/style.css",
-      "sha256": "13a292fa6924c45179bb31677cd2352c16cb02ab6da51c44d86cd3ea1c1b3101"
+      "sha256": "c0ba5225eaa5900f63231672403ed4b31d9fb490889fd20673e61c16dfa3d6f0"
     },
     {
       "path": "src/vite-env.d.ts",
@@ -432,6 +444,10 @@
     {
       "path": "tests/unit/contracts.test.ts",
       "sha256": "ceca51a6f709b63e59a1fdaa5d8d3a85c7ff24ec43d785a7027abf345f6136a5"
+    },
+    {
+      "path": "tests/unit/gameplayStatFilters.test.ts",
+      "sha256": "8ff5501b7139b08bc574016974155944f7bb813de72c21848fccf6ecba4546a8"
     },
     {
       "path": "tests/unit/persistence.test.ts",
